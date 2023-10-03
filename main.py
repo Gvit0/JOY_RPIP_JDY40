@@ -12,6 +12,9 @@ maxJoyX= 64300
 minJoyX= 1255
 maxJoyY= 63485
 minJoyY= 1270
+centerX = 1000
+centerY = 1000
+mZone = 300
 
 valuesjoyx = []
 valuesjoyy = []
@@ -26,8 +29,8 @@ oled = SSD1306_I2C(WIDTH, HEIGHT, i2c) # Init oled display
 
 joyxA = ADC(26)
 joyyA = ADC(27)
-joyBut = Pin(6, Pin.IN, Pin.PULL_UP)
-jdy40Set = Pin(7,Pin.OUT)
+joyBut = Pin(2, Pin.IN, Pin.PULL_UP)
+jdy40Set = Pin(3,Pin.OUT)
 
 
 
@@ -41,17 +44,20 @@ def readJoy():
     valuesjoyy.append(joyyr)
     joyx = int(sum(valuesjoyx) / len(valuesjoyx))
     joyy = int(sum(valuesjoyy) / len(valuesjoyy))
-    if joyx >= maxJoyX:
-        joyx = maxJoyX
+    if 
     else:
-        if joyx <= minJoyX:
-            joyx= minJoyX
-    if joyy >= maxJoyY:
-        joyx = maxJoyY
+        if joyx >= maxJoyX:
+            joyx = maxJoyX
+        else:
+            if joyx <= minJoyX:
+                joyx= minJoyX
+    if joyx 
     else:
-        if joyx <=minJoyY:
-            joy
-
+        if joyy >= maxJoyY:
+            joyy = maxJoyY
+        else:
+            if joyy <=minJoyY:
+                joyy = minJoyY
 
 
     if joyBut.value():
