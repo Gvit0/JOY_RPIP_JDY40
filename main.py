@@ -41,9 +41,24 @@ def readJoy():
     valuesjoyy.append(joyyr)
     joyx = int(sum(valuesjoyx) / len(valuesjoyx))
     joyy = int(sum(valuesjoyy) / len(valuesjoyy))
-    joyB = joyBut.value()
-    return joyx, joyy, joyB
+    if joyx >= maxJoyX:
+        joyx = maxJoyX
+    else:
+        if joyx <= minJoyX:
+            joyx= minJoyX
+    if joyy >= maxJoyY:
+        joyx = maxJoyY
+    else:
+        if joyx <=minJoyY:
+            joy
 
+
+
+    if joyBut.value():
+        joyB =0
+    else:
+        joyB = 1
+    return joyx, joyy, joyB
 
 def displayText(text, position=(0,0),clear_oled=True,show_text=True):
     if clear_oled:
