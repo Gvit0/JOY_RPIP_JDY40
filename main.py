@@ -1,4 +1,4 @@
-хорошоfimport time
+import time
 from machine import Pin, UART, I2C, ADC
 # Библиотека для работы со светодиодами WS2812
 from neopixel import Neopixel
@@ -104,12 +104,12 @@ for _ in range(3):
 
 while True:
     oled.fill(0)
-    joyx, joyy, joyB = readJoy()
+    joyxr, joyyr, joyx, joyy, joyB = readJoy()
     print(joyx, joyy, joyB)
     displayText(str(joyx), (0, 0), clear_oled=False, show_text=True)
     displayText(str(joyy), (50, 0), clear_oled=False, show_text=True)
-displayText(str(joyx), (0, 20), clear_oled=False, show_text=True)
-    displayText(str(joyy), (50, 20), clear_oled=False, show_text=True)
+displayText(str(joyxr), (0, 20), clear_oled=False, show_text=True)
+    displayText(str(joyyr), (50, 20), clear_oled=False, show_text=True)
     displayText(str(joyB), (0, 10), clear_oled=False, show_text=True)
     '''for color in colors:
         # Перебираем светодиоды
