@@ -1,4 +1,4 @@
-fimport time
+хорошоfimport time
 from machine import Pin, UART, I2C, ADC
 # Библиотека для работы со светодиодами WS2812
 from neopixel import Neopixel
@@ -44,7 +44,7 @@ def readJoy():
     valuesjoyy.append(joyyr)
     joyx = int(sum(valuesjoyx) / len(valuesjoyx))
     joyy = int(sum(valuesjoyy) / len(valuesjoyy))
-    if joyx >= centerX + mZone or joyx <= centerX - mZone:
+    if joyx <= centerX + mZone and joyx >= centerX - mZone:
         joyx = centerX
     else:
         if joyx >= maxJoyX:
@@ -52,7 +52,7 @@ def readJoy():
         else:
             if joyx <= minJoyX:
                 joyx= minJoyX
-    if joyy >= centerY + mZone or joyy <= centerY - mZone:
+    if joyy <= centerY + mZone and joyy >= centerY - mZone:
         joyy = centerY 
     else:
         if joyy >= maxJoyY:
