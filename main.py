@@ -4,7 +4,7 @@ from machine import Pin, UART, I2C, ADC
 from neopixel import Neopixel
 from ssd1306 import SSD1306_I2C
 import framebuf,sys
-
+debug = True
 WIDTH  = 128                                            # oled display width
 HEIGHT = 64                                             # oled display height
 
@@ -66,7 +66,7 @@ def readJoy():
         joyB =0
     else:
         joyB = 1
-    return joyx, joyy, joyB
+    return joyxr, joyyr, joyx, joyy, joyB
 
 def displayText(text, position=(0,0),clear_oled=True,show_text=True):
     if clear_oled:
@@ -94,7 +94,7 @@ colors = ((255,153,0),(51,255,0),(0,41,255))
 # Диапазон значений от 0 до 255
 strip.brightness(35)
 
-for _ in range(10):
+for _ in range(3):
     joyxr = joyxA.read_u16()
     joyyr = joyyA.read_u16()
     valuesjoyx.append(joyxr)
@@ -108,6 +108,8 @@ while True:
     print(joyx, joyy, joyB)
     displayText(str(joyx), (0, 0), clear_oled=False, show_text=True)
     displayText(str(joyy), (50, 0), clear_oled=False, show_text=True)
+displayText(str(joyx), (0, 20), clear_oled=False, show_text=True)
+    displayText(str(joyy), (50, 20), clear_oled=False, show_text=True)
     displayText(str(joyB), (0, 10), clear_oled=False, show_text=True)
     '''for color in colors:
         # Перебираем светодиоды
